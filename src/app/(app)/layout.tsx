@@ -1,23 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import {Inter} from 'next/font/google'
+import Navbar from "@/components/Navbar";
 //import "./globals.css";
-import AuthProvider from "@/context/AuthProvider";
 
+const inter = Inter({ subsets: ['latin']})
 
-import { Toaster } from "@/components/ui/toaster"
-
-
-
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,14 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <AuthProvider>
-      <body >
-        {children}
-        <Toaster />
+    <html lang="en">  
+      <body className={inter.className}>
+      <Navbar />
+        {children}    
       </body>
-      </AuthProvider>
-
     </html>
   );
 }
